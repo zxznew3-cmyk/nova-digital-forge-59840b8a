@@ -1,25 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/nova/Navbar";
 import { Footer } from "@/components/nova/Footer";
 import { WhatsAppFloat } from "@/components/nova/WhatsAppFloat";
 import { PageHeader } from "@/components/nova/PageHeader";
 import { Pricing } from "@/components/nova/Pricing";
 
-export const Route = createFileRoute("/pricing")({
-  head: () => ({
-    meta: [
-      { title: "Pricing — Nova Digital Agency" },
-      { name: "description", content: "Transparent pricing plans for startups and enterprises. Starter, Professional and custom Enterprise tiers." },
-      { property: "og:title", content: "Pricing — Nova" },
-      { property: "og:description", content: "Plans that scale with you." },
-      { property: "og:url", content: "/pricing" },
-    ],
-    links: [{ rel: "canonical", href: "/pricing" }],
-  }),
-  component: Page,
-});
-
-function Page() {
+export default function PricingPage() {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <Navbar />

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -45,15 +45,19 @@ export function Navbar() {
 
           <nav className="hidden md:flex items-center gap-8">
             {links.map((l) => (
-              <Link
+              <NavLink
                 key={l.to}
                 to={l.to}
-                activeOptions={{ exact: true }}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group data-[status=active]:text-foreground"
+                end={l.to === "/"}
+                className={({ isActive }) =>
+                  `text-sm text-muted-foreground hover:text-foreground transition-colors relative group ${
+                    isActive ? "text-foreground" : ""
+                  }`
+                }
               >
                 {l.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-primary group-hover:w-full group-data-[status=active]:w-full transition-all duration-300" />
-              </Link>
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-primary group-hover:w-full transition-all duration-300" />
+              </NavLink>
             ))}
           </nav>
 

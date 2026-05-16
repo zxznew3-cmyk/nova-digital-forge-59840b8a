@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Twitter, Linkedin, Github, Instagram } from "lucide-react";
 import { INSTAGRAM_URL, EMAIL } from "@/lib/nova-contact";
 
